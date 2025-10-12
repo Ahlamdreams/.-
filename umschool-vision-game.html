@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رحلة اكتشاف رؤية مدرسة أم مالك الأنصارية</title>
+    <style>
+        /* (*** أكواد CSS هنا ***) */
+        body {
+            box-sizing: border-box;
+            font-family: 'Amiri', 'Cairo', 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 182, 193, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(173, 216, 230, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 218, 185, 0.2) 0%, transparent 50%);
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: particleFloat 30s linear infinite;
+        }
+
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh); opacity: 0; }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% { transform: translateY(-50px); opacity: 0; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .welcome-hero {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.25));
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 60px 40px;
+            box-shadow: 
+                0 25px 50px rgba(0,0,0,0.4),
+                inset 0 1px 0 rgba(255,255,255,0.5);
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            max-width: 700px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            animation: heroIconPulse 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+            line-height: 1.2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        @keyframes heroIconPulse {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(5deg); }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 25px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite;
+            text-shadow: none;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            line-height: 1.8;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .user-input-section {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            margin: 30px 0;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-label {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .name-input {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 25px;
+            padding: 18px 30px;
+            font-size: 1.3rem;
+            color: white;
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            display: block;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .name-input:focus {
+            outline: none;
+            border-color: #ffd700;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
+            transform: scale(1.02);
+        }
+
+        .name-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .user-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .user-type-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.2));
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            border-radius: 25px;
+            padding: 25px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .user-type-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.6s;
+        }
+
+        .user-type-card:hover::before {
+            left: 100%;
+        }
+
+        .user-type-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .user-type-card.selected {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            border-color: #4CAF50;
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.4);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .user-type-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            animation: typeIconBounce 2s ease-in-out infinite;
+            gap: 8px;
+        }
+
+        @keyframes typeIconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .user-type-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .user-type-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            line-height: 1.4;
+            color: #34495e;
+        }
+
+        .start-button {
+            background: linear-gradient(145deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 20px 50px;
+            border-radius: 35px;
+            font-size: 1.4rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 15px 35px rgba(238, 90, 36, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .start-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .start-button:hover::before {
+            left: 100%;
+        }
+
+        .start-button:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(238, 90, 36, 0.6);
+        }
+
+        .start-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .game-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .info-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 25px 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .info-icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            height: 60px;
+        }
+
+        .info-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #2c3e50;
+        }
+
+        .info-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            color: #34495e;
+        }
+
+        .leaderboard-btn {
+            background: linear-gradient(145deg, #9c27b0, #7b1fa2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(156, 39, 176, 0.4);
+            margin-top: 25px;
+        }
+
+        .leaderboard-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(156, 39, 176, 0.6);
+        }
+
+        .game-screen {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .game-header {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.25));
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        .game-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleWave 3s ease-in-out infinite;
+            line-height: 1.2;
+            text-align: center;
+        }
+
+        @keyframes titleWave {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .player-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(145deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+            margin-bottom: 20px;
+            line-height: 1.3;
+            max-width: 100%;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .progress-section {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .progress-bar {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 25px;
+            height: 30px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #4CAF50, #45a049, #66bb6a, #4CAF50);
+            background-size: 200% 100%;
+            height: 100%;
+            width: 0%;
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 25px;
+            position: relative;
+            animation: progressFlow 2s linear infinite;
+        }
+
+        @keyframes progressFlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        .progress-text {
+            text-align: center;
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #2c3e50;
+        }
+
+        .question-container {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.35), rgba(255, 255, 255, 0.2));
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            display: none;
+        }
+
+        .question-container.active {
+            display: block;
+            animation: questionSlide 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes questionSlide {
+            from { 
+                opacity: 0; 
+                transform: translateY(50px) scale(0.9); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        .question-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .question-number {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            animation: numberPulse 2s ease-in-out infinite;
+            line-height: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes numberPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .question-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #8e44ad;
+            line-height: 1.3;
+            text-align: center;
+        }
+
+        .question-text {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            text-align: center;
+            margin-bottom: 35px;
+            font-weight: 500;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #2c3e50;
+        }
+
+        .answers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .answer-option {
+            background: linear-gradient(145deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+            color: white;
+            border: none;
+            padding: 20px 18px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+            line-height: 1.5;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .answer-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .answer-option:hover::before {
+            left: 100%;
+        }
+
+        .answer-option:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.5);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .answer-option.correct {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            animation: correctBounce 0.8s ease;
+            box-shadow: 0 15px 40px rgba(76, 175, 80, 0.5);
+        }
+
+        .answer-option.wrong {
+            background: linear-gradient(145deg, #f44336, #d32f2f);
+            animation: wrongShake 0.6s ease;
+            box-shadow: 0 15px 40px rgba(244, 67, 54, 0.5);
+        }
+
+        @keyframes correctBounce {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1.05); }
+        }
+
+        @keyframes wrongShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-15px); }
+            75% { transform: translateX(15px); }
+        }
+
+        .explanation-section {
+            background: linear-gradient(145deg, rgba(156, 39, 176, 0.3), rgba(123, 31, 162, 0.2));
+            border: 2px solid rgba(156, 39, 176, 0.5);
+            border-radius: 20px;
+            padding: 25px;
+            margin-top: 25px;
+            display: none;
+            backdrop-filter: blur(15px);
+        }
+
+        .explanation-section.show {
+            display: block;
+            animation: explanationSlide 0.6s ease;
+        }
+
+        @keyframes explanationSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .explanation-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #8e44ad;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .explanation-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+            color: #2c3e50;
+        }
+
+        .control-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .control-btn {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+            display: none;
+        }
+
+        .control-btn.show {
+            display: inline-block;
+        }
+
+        .control-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+        }
+
+        .control-btn.restart {
+            background: linear-gradient(145deg, #ff9800, #f57c00);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+        }
+
+        .control-btn.restart:hover {
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.5);
+        }
+
+        .leaderboard-screen {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .leaderboard-container {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.25));
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 50px;
+            border: 4px solid rgba(255, 215, 0, 0.8);
+            box-shadow: 
+                0 30px 60px rgba(255, 215, 0, 0.4),
+                inset 0 1px 0 rgba(255,255,255,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leaderboard-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffeaa7, #ff6b6b);
+            background-size: 200% 100%;
+            animation: rainbowFlow 3s linear infinite;
+        }
+
+        @keyframes rainbowFlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 200% 0%; }
+        }
+
+        .leaderboard-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .leaderboard-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ffd700);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShimmer 4s ease-in-out infinite;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .leaderboard-title::before {
+            content: '🌟';
+            position: absolute;
+            top: -15px;
+            left: -60px;
+            font-size: 2.5rem;
+            animation: starSpin 3s linear infinite;
+        }
+
+        .leaderboard-title::after {
+            content: '🏆';
+            position: absolute;
+            top: -15px;
+            right: -60px;
+            font-size: 2.5rem;
+            animation: trophyFloat 2s ease-in-out infinite;
+        }
+
+        @keyframes starSpin {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        @keyframes trophyFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(10deg); }
+        }
+
+        @keyframes titleShimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .leaderboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .stat-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #4CAF50;
+            display: block;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 35px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(15px);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            border-color: #4CAF50;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+        }
+
+        .leaders-list {
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 15px;
+        }
+
+        .leaders-list::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        .leaders-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .leaders-list::-webkit-scrollbar-thumb {
+            background: linear-gradient(145deg, #ffd700, #ffed4e);
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .leader-item {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .leader-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            transition: left 0.8s;
+        }
+
+        .leader-item:hover::before {
+            left: 100%;
+        }
+
+        .leader-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+        }
+
+        .leader-item.top-rank {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.4), rgba(255, 193, 7, 0.2));
+            border: 3px solid rgba(255, 215, 0, 0.6);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .leader-item.champion {
+            animation: championGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes championGlow {
+            from { 
+                box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+                border-color: rgba(255, 215, 0, 0.6);
+            }
+            to { 
+                box-shadow: 0 30px 60px rgba(255, 215, 0, 0.5);
+                border-color: rgba(255, 215, 0, 0.8);
+            }
+        }
+
+        .rank-badge {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-left: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+
+        .rank-badge.gold {
+            background: linear-gradient(145deg, #ffd700, #ffed4e);
+            color: #333;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.5);
+            animation: goldPulse 2s ease-in-out infinite;
+        }
+
+        .rank-badge.silver {
+            background: linear-gradient(145deg, #c0c0c0, #e8e8e8);
+            color: #333;
+            box-shadow: 0 8px 25px rgba(192, 192, 192, 0.5);
+        }
+
+        .rank-badge.bronze {
+            background: linear-gradient(145deg, #cd7f32, #daa520);
+            color: white;
+            box-shadow: 0 8px 25px rgba(205, 127, 50, 0.5);
+        }
+
+        .rank-badge.regular {
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        @keyframes goldPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .player-details {
+            flex: 1;
+            margin: 0 25px;
+        }
+
+        .player-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .user-badge {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+
+        .player-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 1rem;
+            opacity: 0.95;
+            flex-wrap: wrap;
+            color: #2c3e50;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px 12px;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+        }
+
+        .score-display {
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .final-score {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #4CAF50;
+            margin-bottom: 8px;
+            background: linear-gradient(145deg, #4CAF50, #66bb6a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .score-details {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .speed-bonus {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 80px 40px;
+            opacity: 0.8;
+        }
+
+        .empty-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: emptyFloat 3s ease-in-out infinite;
+            line-height: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes emptyFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .empty-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .empty-subtitle {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            color: #34495e;
+        }
+
+        .leaderboard-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .control-button {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .control-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+        }
+
+        .control-button.danger {
+            background: linear-gradient(145deg, #f44336, #d32f2f);
+            box-shadow: 0 8px 25px rgba(244, 67, 54, 0.3);
+        }
+
+        .control-button.danger:hover {
+            box-shadow: 0 15px 35px rgba(244, 67, 54, 0.5);
+        }
+
+        .control-button.secondary {
+            background: linear-gradient(145deg, #ff9800, #f57c00);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+        }
+
+        .control-button.secondary:hover {
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.5);
+        }
+
+        .score-timer {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .score-display {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .timer-display {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            color: #2c3e50;
+        }
+
+        .celebration-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .celebration-overlay.show {
+            display: flex;
+            animation: celebrationFade 0.6s ease;
+        }
+
+        @keyframes celebrationFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .celebration-card {
+            background: linear-gradient(145deg, #ffd700, #ffed4e);
+            color: #333;
+            padding: 50px 40px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 600px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            animation: celebrationPop 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .close-celebration {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            color: #333;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-celebration:hover {
+            background: rgba(0, 0, 0, 0.3);
+            transform: scale(1.1);
+        }
+
+        @keyframes celebrationPop {
+            0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+            50% { transform: scale(1.1) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        .celebration-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 25px;
+            animation: titleBounce 1s ease-in-out infinite;
+        }
+
+        @keyframes titleBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .celebration-text {
+            font-size: 1.4rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .vision-puzzle-screen {
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .puzzle-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .puzzle-title {
+            font-size: 3rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #ffd700);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: titleShimmer 4s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .puzzle-subtitle {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .puzzle-container {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.25));
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .puzzle-words {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .word-card {
+            background: linear-gradient(145deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            user-select: none;
+        }
+
+        .word-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+        }
+
+        .word-card:active {
+            transform: scale(0.95);
+        }
+
+        .word-card.selected {
+            background: linear-gradient(145deg, #ffd700, #ffed4e);
+            color: #333;
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .drop-zone {
+            min-height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 3px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .drop-zone.drag-over {
+            background: rgba(76, 175, 80, 0.2);
+            border-color: #4CAF50;
+            box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);
+        }
+
+        .drop-hint {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 1.2rem;
+            opacity: 0.7;
+            margin: auto;
+            font-style: italic;
+        }
+
+        .dropped-word {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            color: white;
+            padding: 12px 18px;
+            border-radius: 15px;
+            text-align: center;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dropped-word:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        .puzzle-result {
+            background: linear-gradient(145deg, rgba(255, 215, 0, 0.3), rgba(255, 193, 7, 0.2));
+            border: 2px solid rgba(255, 215, 0, 0.6);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .puzzle-result h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .final-vision {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .puzzle-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .puzzle-btn {
+            background: linear-gradient(145deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .puzzle-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(76, 175, 80, 0.5);
+        }
+
+        .puzzle-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .puzzle-btn.secondary {
+            background: linear-gradient(145deg, #ff9800, #f57c00);
+            box-shadow: 0 8px 25px rgba(255, 152, 0, 0.3);
+        }
+
+        .puzzle-btn.secondary:hover {
+            box-shadow: 0 15px 35px rgba(255, 152, 0, 0.5);
+        }
+
+        .puzzle-btn.success {
+            background: linear-gradient(145deg, #ffd700, #ffed4e);
+            color: #333;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+        }
+
+        .puzzle-btn.success:hover {
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .game-title {
+                font-size: 2rem;
+            }
+            
+            .answers-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-types {
+                grid-template-columns: 1fr;
+            }
+            
+            .leaderboard-title {
+                font-size: 2.5rem;
+            }
+            
+            .leaderboard-title::before,
+            .leaderboard-title::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bg"></div>
+    
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="welcome-screen" id="welcomeScreen">
+            <div class="welcome-hero">
+                <div class="hero-content">
+                    <div class="hero-icon">🎓✨🌟</div>
+                    <h1 class="hero-title">رحلة الاكتشاف</h1>
+                    <p class="hero-subtitle">
+                        🏫 اكتشف رؤية مدرسة أم مالك الأنصارية للبنات<br>
+                        🚀 من خلال مغامرة تفاعلية مليئة بالإثارة والتحدي
+                    </p>
+                    
+                    <div class="user-input-section">
+                        <div class="input-group">
+                            <label class="input-label">✨ أدخل اسمك للبدء</label>
+                            <input type="text" class="name-input" id="playerName" placeholder="اكتب اسمك هنا..." maxlength="25">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">👥 اختر نوع المستخدم</label>
+                            <div class="user-types">
+                                <div class="user-type-card" id="parentCard" onclick="selectUserType('parent')">
+                                    <span class="user-type-icon">🏠💝</span>
+                                    <div class="user-type-title">ولي أمر</div>
+                                    <div class="user-type-desc">أولياء أمور الطالبات</div>
+                                </div>
+                                <div class="user-type-card" id="studentCard" onclick="selectUserType('student')">
+                                    <span class="user-type-icon">📚🌸</span>
+                                    <div class="user-type-title">طالبة</div>
+                                    <div class="user-type-desc">طالبات المدرسة</div>
+                                </div>
+                                <div class="user-type-card" id="teacherCard" onclick="selectUserType('teacher')">
+                                    <span class="user-type-icon">🍎📖</span>
+                                    <div class="user-type-title">هيئة تعليمية</div>
+                                    <div class="user-type-desc">المعلمات والإداريات</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="start-button" id="startButton" onclick="startGame()" disabled>
+                            🚀 ابدأ الرحلة
+                        </button>
+                    </div>
+                    
+                    <div class="game-info">
+                        <div class="info-card">
+                            <span class="info-icon">🎯</span>
+                            <div class="info-title">6 أسئلة</div>
+                            <div class="info-desc">أسئلة تفاعلية مثيرة</div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">🏆</span>
+                            <div class="info-title">لوحة صدارة</div>
+                            <div class="info-desc">تنافس مع الآخرين</div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">🧩</span>
+                            <div class="info-title">لعبة تكوين</div>
+                            <div class="info-desc">اكتشف الرؤية الكاملة</div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">⚡</span>
+                            <div class="info-title">مكافآت السرعة</div>
+                            <div class="info-desc">نقاط إضافية للسرعة</div>
+                        </div>
+                    </div>
+                    
+                    <button class="leaderboard-btn" onclick="showWelcomeLeaderboard()">
+                        🌟 عرض لوحة الصدارة 🏆
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-screen" id="gameScreen">
+            <div class="game-header">
+                <h1 class="game-title">🎯 رحلة اكتشاف الرؤية ✨</h1>
+                <div class="player-badge" id="playerBadge">
+                    <span>👤</span>
+                    <span id="displayName">اللاعب</span>
+                </div>
+                <div style="font-size: 1.2rem; opacity: 0.9;">
+                    🏫 مدرسة أم مالك الأنصارية للبنات 🌸
+                </div>
+            </div>
+
+            <div class="progress-section">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                <div class="progress-text" id="progressText">السؤال 1 من 6</div>
+            </div>
+
+            <div class="question-container active" id="question1">
+                <div class="question-header">
+                    <div class="question-number">🌟</div>
+                    <div class="question-title">السؤال الأول</div>
+                </div>
+                <div class="question-text">ما هو نوع التعليم الذي تسعى المدرسة لتقديمه؟</div>
+                <div class="answers-container">
+                    <button class="answer-option" onclick="selectAnswer(1, 'تعليم', true)">
+                        🚀📚 تعليم متطور ومواكب للعصر
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(1, '', false)">
+                        📜⏳ تعليم تقليدي ومحافظ
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(1, '', false)">
+                        🏫📝 تعليم عادي ومتوسط
+                    </button>
+                </div>
+                <div class="explanation-section" id="explanation1">
+                    <div class="explanation-title">💡 الشرح</div>
+                    <div class="explanation-text">المدرسة تهدف إلى تقديم **"تعليم متطور"** يواكب التطورات الحديثة ويستخدم أفضل الطرق والوسائل التعليمية.</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="nextBtn1" onclick="nextQuestion(2)">التالي ➡️</button>
+                </div>
+            </div>
+
+            <div class="question-container" id="question2">
+                <div class="question-header">
+                    <div class="question-number">💎</div>
+                    <div class="question-title">السؤال الثاني</div>
+                </div>
+                <div class="question-text">كيف تستخدم المدرسة التكنولوجيا في التعليم؟</div>
+                <div class="answers-container">
+                    <button class="answer-option" onclick="selectAnswer(2, '', false)">
+                        🚫❌ لا تستخدم التكنولوجيا
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(2, 'يوظف التقانة بكفاءة', true)">
+                        ⚡🔥 يوظف التقانة بكفاءة عالية
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(2, '', false)">
+                        📱⏰ يستخدم التقانة أحياناً
+                    </button>
+                </div>
+                <div class="explanation-section" id="explanation2">
+                    <div class="explanation-title">💡 الشرح</div>
+                    <div class="explanation-text">المدرسة **"يوظف التقانة بكفاءة"** مما يعني الاستخدام الذكي والفعال للتكنولوجيا في جميع جوانب التعليم.</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="nextBtn2" onclick="nextQuestion(3)">التالي ➡️</button>
+                </div>
+            </div>
+
+            <div class="question-container" id="question3">
+                <div class="question-header">
+                    <div class="question-number">🌈</div>
+                    <div class="question-title">السؤال الثالث</div>
+                </div>
+                <div class="question-text">ما نوع التعلم الذي تركز عليه المدرسة؟</div>
+                <div class="answers-container">
+                    <button class="answer-option" onclick="selectAnswer(3, '', false)">
+                        📅⏳ تعلم موسمي ومؤقت
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(3, '', false)">
+                        🎓📖 تعلم أكاديمي فقط
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(3, 'تعلم مستدام', true)">
+                        🌱💚 تعلم مستدام ومستمر
+                    </button>
+                </div>
+                <div class="explanation-section" id="explanation3">
+                    <div class="explanation-title">💡 الشرح</div>
+                    <div class="explanation-text">المدرسة تؤمن بـ **"تعلم مستدام"** يستمر مدى الحياة ولا يتوقف عند حدود المنهج الدراسي.</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="nextBtn3" onclick="nextQuestion(4)">التالي ➡️</button>
+                </div>
+            </div>
+
+            <div class="question-container" id="question4">
+                <div class="question-header">
+                    <div class="question-number">🌟</div>
+                    <div class="question-title">السؤال الرابع</div>
+                </div>
+                <div class="question-text">ما علاقة المدرسة بالمجتمع المحيط؟</div>
+                <div class="answers-container">
+                    <button class="answer-option" onclick="selectAnswer(4, '', false)">
+                        🏢🚪 منعزلة عن المجتمع
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(4, 'شراكة مجتمعية', true)">
+                        🤝💫 شراكة مجتمعية قوية
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(4, '', false)">
+                        📞📧 تواصل محدود مع المجتمع
+                    </button>
+                </div>
+                <div class="explanation-section" id="explanation4">
+                    <div class="explanation-title">💡 الشرح</div>
+                    <div class="explanation-text">المدرسة تسعى لبناء **"شراكة مجتمعية"** حقيقية مع المجتمع المحلي لتحقيق أهدافها التعليمية.</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="nextBtn4" onclick="nextQuestion(5)">التالي ➡️</button>
+                </div>
+            </div>
+
+            <div class="question-container" id="question5">
+                <div class="question-header">
+                    <div class="question-number">💎</div>
+                    <div class="question-title">السؤال الخامس</div>
+                </div>
+                <div class="question-text">كيف تصف طبيعة الشراكة المجتمعية للمدرسة؟</div>
+                <div class="answers-container">
+                    <button class="answer-option" onclick="selectAnswer(5, '', false)">
+                        😴💤 شراكة خاملة وضعيفة
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(5, 'فاعلة', true)">
+                        🌟⚡ شراكة فاعلة ومؤثرة
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(5, '', false)">
+                        📋📄 شراكة شكلية فقط
+                    </button>
+                </div>
+                <div class="explanation-section" id="explanation5">
+                    <div class="explanation-title">💡 الشرح</div>
+                    <div class="explanation-text">الشراكة المجتمعية في المدرسة **"فاعلة"** أي نشطة ومؤثرة وتحقق نتائج إيجابية ملموسة.</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="nextBtn5" onclick="nextQuestion(6)">التالي ➡️</button>
+                </div>
+            </div>
+
+            <div class="question-container" id="question6">
+                <div class="question-header">
+                    <div class="question-number">🏆</div>
+                    <div class="question-title">السؤال الأخير</div>
+                </div>
+                <div class="question-text">ما الكلمة التي تربط بين جميع عناصر رؤية المدرسة؟</div>
+                <div class="answers-container">
+                    <button class="answer-option" onclick="selectAnswer(6, '', false)">
+                        ➕📝 "و" العطف البسيط
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(6, 'مع', true)">
+                        🤝✨ "مع" التي تفيد المصاحبة
+                    </button>
+                    <button class="answer-option" onclick="selectAnswer(6, '', false)">
+                        📍🗺️ "في" التي تفيد الظرفية
+                    </button>
+                </div>
+                <div class="explanation-section" id="explanation6">
+                    <div class="explanation-title">💡 الشرح</div>
+                    <div class="explanation-text">كلمة **"مع"** تربط بين عناصر الرؤية وتدل على التكامل والتناغم بين التعليم المتطور والتعلم المستدام والشراكة المجتمعية.</div>
+                </div>
+                <div class="control-buttons">
+                    <button class="control-btn" id="nextBtn6" onclick="showVisionPuzzle()">🧩 رتب الرؤية!</button>
+                </div>
+            </div>
+
+            <div class="score-timer">
+                <div class="score-display" id="scoreDisplay">النقاط: 0 / 6</div>
+                <div class="timer-display">الوقت: <span id="timerDisplay">00:00</span></div>
+            </div>
+        </div>
+
+        <div class="vision-puzzle-screen" id="visionPuzzleScreen" style="display: none;">
+            <div class="container">
+                <div class="puzzle-header">
+                    <h1 class="puzzle-title">🧩 رتب رؤية المدرسة 🌟</h1>
+                    <p class="puzzle-subtitle">اضغط على الكلمات لترتيب رؤية مدرسة أم مالك الأنصارية الصحيحة</p>
+                </div>
+                
+                <div class="puzzle-container">
+                    <div class="puzzle-words" id="puzzleWords">
+                        <div class="word-card" data-word="فاعلة">فاعلة</div>
+                        <div class="word-card" data-word="وشراكة مجتمعية">وشراكة مجتمعية</div>
+                        <div class="word-card" data-word="مع">مع</div>
+                        <div class="word-card" data-word="تعلم مستدام">تعلم مستدام</div>
+                        <div class="word-card" data-word="يوظف التقانة بكفاءة">يوظف التقانة بكفاءة</div>
+                        <div class="word-card" data-word="تعليم متطور">تعليم متطور</div>
+                    </div>
+                    
+                    <div class="drop-zone" id="dropZone">
+                        <div class="drop-hint">اضغط على الكلمات لترتيب الرؤية هنا</div>
+                    </div>
+                    
+                    <div class="puzzle-result" id="puzzleResult" style="display: none;">
+                        <h3>🎯 الرؤية الكاملة:</h3>
+                        <div class="final-vision">"تعليم متطور يوظف التقانة بكفاءة مع تعلم مستدام وشراكة مجتمعية فاعلة"</div>
+                    </div>
+                    
+                    <div class="puzzle-controls">
+                        <button class="puzzle-btn" id="checkPuzzleBtn" onclick="checkPuzzleOrder()" disabled>✅ تحقق من الترتيب</button>
+                        <button class="puzzle-btn secondary" onclick="resetPuzzle()">🔄 إعادة ترتيب</button>
+                        <button class="puzzle-btn success" id="continueToCelebration" onclick="showFinalCelebration()" style="display: none;">🎉 متابعة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="leaderboard-screen" id="leaderboardScreen">
+            <div class="leaderboard-container">
+                <div class="leaderboard-header">
+                    <div class="leaderboard-title">لوحة الصدارة</div>
+                    <div style="font-size: 1.3rem; opacity: 0.9; margin-bottom: 30px;">
+                        🏆 أبطال اكتشاف رؤية المدرسة 🌟
+                    </div>
+                    
+                    <div class="leaderboard-stats" id="leaderboardStats">
+                        <div class="stat-card">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">لاعب</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">متوسط النقاط</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">نتيجة مثالية</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">بطل سرعة</span>
+                        </div>
+                    </div>
+                    
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterLeaderboard('all')">🌟 الكل</button>
+                        <button class="filter-btn" onclick="filterLeaderboard('student')">📚 الطالبات</button>
+                        <button class="filter-btn" onclick="filterLeaderboard('parent')">🏠 أولياء الأمور</button>
+                        <button class="filter-btn" onclick="filterLeaderboard('teacher')">🍎 الهيئة التعليمية</button>
+                    </div>
+                </div>
+                
+                <div class="leaders-list" id="leadersList">
+                    <div class="empty-state">
+                        <div class="empty-icon">🎯</div>
+                        <div class="empty-title">يتم تحميل النتائج...</div>
+                        <div class="empty-subtitle">
+                            قد يستغرق التحميل من السحابة بضع ثوانٍ 🔄
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="leaderboard-controls">
+                    <button class="control-button" onclick="backToWelcome()" id="backToWelcomeBtn">
+                        🏠 العودة للرئيسية
+                    </button>
+                    <button class="control-button" onclick="hideLeaderboard()" id="backToGameBtn" style="display: none;">
+                        ↩️ العودة للعبة
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="celebration-overlay" id="celebrationOverlay">
+        <div class="celebration-card">
+            <button class="close-celebration" onclick="closeCelebration()">✕</button>
+            <div class="celebration-title">🎉 تهانينا! 🎉</div>
+            <div class="celebration-text">
+                لقد اكتشفت رؤية مدرسة أم مالك الأنصارية للبنات بنجاح!<br>
+                **أحسنت! 👏**
+            </div>
+            <div style="margin-top: 30px;">
+                <button class="control-btn restart" onclick="restartGame()">🔄 العب مرة أخرى</button>
+                <button class="control-btn" onclick="showLeaderboard()" style="margin-right: 15px;">🏆 لوحة الصدارة</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // *** الجزء الذي تم تعديله ليتناسب مع Google Apps Script ***
+
+        // ** 🔑 تم تحديث الرابط برابط Web App URL الجديد الذي قدمته: **
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw575GgYlR9SHV2K0kwQkvPOWFG7RZRsoWg-e9h3xrjTPjybwz-CiWU0kD8dNBAM0jqWw/exec"; 
+
+        let currentQuestion = 1;
+        let score = 0;
+        let playerName = '';
+        let userType = '';
+        let startTime = null;
+        let timerInterval = null;
+        let currentFilter = 'all';
+        const totalQuestions = 6;
+        let cachedLeaderboard = []; 
+
+        // إنشاء الجزيئات المتحركة
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 8;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 30 + 's';
+                particle.style.animationDuration = '30s';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // اختيار نوع المستخدم
+        function selectUserType(type) {
+            userType = type;
+            
+            document.querySelectorAll('.user-type-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            document.getElementById(type + 'Card').classList.add('selected');
+            
+            checkStartButtonState();
+        }
+
+        // فحص حالة زر البداية
+        function checkStartButtonState() {
+            const name = document.getElementById('playerName').value.trim();
+            const startBtn = document.getElementById('startButton');
+            
+            if (name.length >= 2 && userType) {
+                startBtn.disabled = false;
+                startBtn.style.opacity = '1';
+            } else {
+                startBtn.disabled = true;
+                startBtn.style.opacity = '0.5';
+            }
+        }
+
+        // بدء اللعبة
+        function startGame() {
+            playerName = document.getElementById('playerName').value.trim();
+            if (playerName.length < 2 || !userType) return;
+
+            let userIcon = '';
+            let userLabel = '';
+            switch(userType) {
+                case 'parent':
+                    userIcon = '👨‍👩‍👧‍👦';
+                    userLabel = 'ولي أمر';
+                    break;
+                case 'student':
+                    userIcon = '👩‍🎓';
+                    userLabel = 'طالبة';
+                    break;
+                case 'teacher':
+                    userIcon = '👩‍🏫';
+                    userLabel = 'هيئة تعليمية';
+                    break;
+            }
+
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('gameScreen').style.display = 'block';
+            document.getElementById('displayName').textContent = playerName;
+            document.getElementById('playerBadge').innerHTML = `
+                <span>${userIcon}</span>
+                <span>${playerName}</span>
+                <span style="font-size: 0.9rem; opacity: 0.8;">(${userLabel})</span>
+            `;
+            
+            startTime = Date.now();
+            startTimer();
+            updateProgress();
+            updateScore();
+        }
+
+        // بدء المؤقت
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+                const minutes = Math.floor(elapsed / 60);
+                const seconds = elapsed % 60;
+                document.getElementById('timerDisplay').textContent = 
+                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // اختيار الإجابة (الوظيفة تبقى كما هي)
+        function selectAnswer(questionNum, visionPart, isCorrect) {
+            const buttons = document.querySelectorAll(`#question${questionNum} .answer-option`);
+            
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                if (btn.onclick.toString().includes('true')) {
+                    btn.classList.add('correct');
+                } else if (btn.onclick.toString().includes('false') && btn === event.target) {
+                    btn.classList.add('wrong');
+                }
+            });
+
+            if (isCorrect) {
+                score++;
+            }
+
+            document.getElementById(`explanation${questionNum}`).classList.add('show');
+            document.getElementById(`nextBtn${questionNum}`).classList.add('show');
+
+            updateScore();
+        }
+
+        // الانتقال للسؤال التالي (الوظيفة تبقى كما هي)
+        function nextQuestion(nextNum) {
+            document.getElementById(`question${currentQuestion}`).classList.remove('active');
+            
+            if (nextNum <= totalQuestions) {
+                document.getElementById(`question${nextNum}`).classList.add('active');
+                currentQuestion = nextNum;
+                updateProgress();
+            }
+        }
+
+        // تحديث شريط التقدم (الوظيفة تبقى كما هي)
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `السؤال ${currentQuestion} من ${totalQuestions}`;
+        }
+
+        // تحديث النقاط (الوظيفة تبقى كما هي)
+        function updateScore() {
+            document.getElementById('scoreDisplay').textContent = `النقاط: ${score} / ${totalQuestions}`;
+        }
+
+        // إظهار لعبة ترتيب الرؤية (الوظيفة تبقى كما هي)
+        function showVisionPuzzle() {
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('visionPuzzleScreen').style.display = 'block';
+            
+            shufflePuzzleWords();
+            initializeDragAndDrop();
+        }
+
+        // خلط كلمات الأحجية (الوظيفة تبقى كما هي)
+        function shufflePuzzleWords() {
+            const wordsContainer = document.getElementById('puzzleWords');
+            const words = Array.from(wordsContainer.children);
+            
+            for (let i = words.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [words[i], words[j]] = [words[j], words[i]];
+            }
+            
+            words.forEach(word => wordsContainer.appendChild(word));
+        }
+
+        // تهيئة نظام الضغط للاختيار (الوظيفة تبقى كما هي)
+        function initializeDragAndDrop() {
+            const wordCards = document.querySelectorAll('.word-card');
+            wordCards.forEach(card => {
+                card.addEventListener('click', handleWordClick);
+            });
+        }
+
+        let selectedWord = null;
+
+        function handleWordClick() {
+            if (selectedWord) {
+                selectedWord.classList.remove('selected');
+            }
+            
+            selectedWord = this;
+            this.classList.add('selected');
+            
+            addWordToDropZone(this);
+        }
+
+        function addWordToDropZone(wordElement) {
+            const dropZone = document.getElementById('dropZone');
+            
+            const droppedWord = document.createElement('div');
+            droppedWord.className = 'dropped-word';
+            droppedWord.textContent = wordElement.textContent;
+            droppedWord.dataset.word = wordElement.dataset.word;
+            
+            droppedWord.addEventListener('click', function() {
+                this.remove();
+                wordElement.style.display = 'block';
+                wordElement.classList.remove('selected');
+                if (selectedWord === wordElement) {
+                    selectedWord = null;
+                }
+                updatePuzzleButtons();
+                
+                const remainingWords = dropZone.querySelectorAll('.dropped-word');
+                if (remainingWords.length === 0) {
+                    const dropHint = dropZone.querySelector('.drop-hint');
+                    if (dropHint) {
+                        dropHint.style.display = 'block';
+                    }
+                }
+            });
+            
+            const dropHint = dropZone.querySelector('.drop-hint');
+            if (dropHint) {
+                dropHint.style.display = 'none';
+            }
+            
+            dropZone.appendChild(droppedWord);
+            wordElement.style.display = 'none';
+            wordElement.classList.remove('selected');
+            selectedWord = null;
+            
+            updatePuzzleButtons();
+        }
+
+        function updatePuzzleButtons() {
+            const dropZone = document.getElementById('dropZone');
+            const droppedWords = dropZone.querySelectorAll('.dropped-word');
+            const checkBtn = document.getElementById('checkPuzzleBtn');
+            
+            checkBtn.disabled = droppedWords.length !== 6;
+        }
+
+        function checkPuzzleOrder() {
+            const dropZone = document.getElementById('dropZone');
+            const droppedWords = Array.from(dropZone.querySelectorAll('.dropped-word'));
+            
+            const correctOrder = [
+                'تعليم متطور',
+                'يوظف التقانة بكفاءة', 
+                'مع',
+                'تعلم مستدام',
+                'وشراكة مجتمعية',
+                'فاعلة'
+            ];
+            
+            const userOrder = droppedWords.map(word => word.dataset.word);
+            const isCorrect = JSON.stringify(userOrder) === JSON.stringify(correctOrder);
+            
+            if (isCorrect) {
+                document.getElementById('puzzleResult').style.display = 'block';
+                document.getElementById('checkPuzzleBtn').style.display = 'none';
+                document.getElementById('continueToCelebration').style.display = 'inline-block';
+                
+                droppedWords.forEach((word, index) => {
+                    setTimeout(() => {
+                        word.style.background = 'linear-gradient(145deg, #ffd700, #ffed4e)';
+                        word.style.color = '#333';
+                        word.style.transform = 'scale(1.05)';
+                    }, index * 200);
+                });
+            } else {
+                const errorMsg = document.createElement('div');
+                errorMsg.style.cssText = `
+                    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                    background: linear-gradient(145deg, #f44336, #d32f2f);
+                    color: white; padding: 20px 30px; border-radius: 20px;
+                    font-size: 1.2rem; font-weight: bold; z-index: 1001;
+                    box-shadow: 0 15px 35px rgba(244, 67, 54, 0.5);
+                    text-align: center;
+                `;
+                errorMsg.innerHTML = '❌ الترتيب غير صحيح! حاول مرة أخرى';
+                document.body.appendChild(errorMsg);
+                
+                setTimeout(() => {
+                    if (document.body.contains(errorMsg)) {
+                        document.body.removeChild(errorMsg);
+                    }
+                }, 3000);
+            }
+        }
+
+        function resetPuzzle() {
+            const dropZone = document.getElementById('dropZone');
+            const wordCards = document.querySelectorAll('.word-card');
+            
+            wordCards.forEach(card => {
+                card.style.display = 'block';
+                card.style.background = 'linear-gradient(145deg, #667eea, #764ba2)';
+                card.style.color = 'white';
+                card.style.transform = 'none';
+            });
+            
+            dropZone.innerHTML = '<div class="drop-hint">اضغط على الكلمات لترتيب الرؤية هنا</div>';
+            
+            document.getElementById('puzzleResult').style.display = 'none';
+            document.getElementById('checkPuzzleBtn').style.display = 'inline-block';
+            document.getElementById('continueToCelebration').style.display = 'none';
+            
+            shufflePuzzleWords();
+            updatePuzzleButtons();
+        }
+
+        // إظهار الاحتفال النهائي (تم تعديل حفظ النتيجة للعمل مع API)
+        function showFinalCelebration() {
+            clearInterval(timerInterval);
+            
+            const elapsed = Math.floor((Date.now() - startTime) / 1000);
+            let speedBonus = 0;
+            let speedMessage = '';
+            
+            if (score === totalQuestions) {
+                if (elapsed <= 60) {
+                    speedBonus = 100;
+                    speedMessage = '🏆 بطل السرعة! أقل من دقيقة! +100 نقطة';
+                } else if (elapsed <= 90) {
+                    speedBonus = 75;
+                    speedMessage = '⚡ سرعة رائعة! أقل من دقيقة ونصف! +75 نقطة';
+                } else if (elapsed <= 120) {
+                    speedBonus = 50;
+                    speedMessage = '🚀 أداء سريع! أقل من دقيقتين! +50 نقطة';
+                } else if (elapsed <= 180) {
+                    speedBonus = 25;
+                    speedMessage = '⏰ وقت جيد! أقل من 3 دقائق! +25 نقطة';
+                }
+            }
+            
+            const finalScore = score * 100 + speedBonus;
+
+            // إظهار رسالة المكافأة
+            if (speedBonus > 0) {
+                setTimeout(() => {
+                    const speedMsg = document.createElement('div');
+                    speedMsg.style.cssText = `
+                        position: fixed; top: 20%; left: 50%; transform: translate(-50%, -50%);
+                        background: linear-gradient(145deg, #ffd700, #ffed4e);
+                        color: #333; padding: 25px 35px; border-radius: 25px;
+                        font-size: 1.3rem; font-weight: bold; z-index: 1001;
+                        box-shadow: 0 20px 50px rgba(255, 215, 0, 0.5);
+                        animation: celebrationPop 1s ease; text-align: center;
+                    `;
+                    speedMsg.innerHTML = speedMessage;
+                    document.body.appendChild(speedMsg);
+                    
+                    setTimeout(() => {
+                        if (document.body.contains(speedMsg)) {
+                            document.body.removeChild(speedMsg);
+                        }
+                    }, 4000);
+                }, 500);
+            }
+            
+            // حفظ النتيجة في السحابة
+            saveToCloudLeaderboard(finalScore, elapsed, speedBonus).then(() => {
+                // بعد الحفظ بنجاح، أظهر لوحة الصدارة
+                setTimeout(() => {
+                    document.getElementById('visionPuzzleScreen').style.display = 'none';
+                    showLeaderboard();
+                    document.getElementById('backToWelcomeBtn').style.display = 'inline-block';
+                    document.getElementById('backToGameBtn').style.display = 'none';
+                    document.getElementById('backToWelcomeBtn').innerHTML = '🏠 العودة للرئيسية';
+                }, speedBonus > 0 ? 2000 : 500);
+            });
+        }
+
+        // إغلاق رسالة الاحتفال (الوظيفة تبقى كما هي)
+        function closeCelebration() {
+            document.getElementById('celebrationOverlay').classList.remove('show');
+        }
+
+        // *** دالة الحفظ الجديدة (تتواصل مع Google Apps Script) ***
+        function saveToCloudLeaderboard(finalScore, elapsed, speedBonus) {
+            const data = {
+                action: 'SAVE',
+                name: playerName,
+                userType: userType,
+                score: finalScore,
+                correctAnswers: score,
+                time: elapsed,
+                speedBonus: speedBonus
+            };
+
+            return fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' }, // <-- fixed to avoid preflight
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'Success') {
+                    console.log('Score saved successfully to Google Sheets.');
+                } else {
+                    console.error('Error saving score:', result.message);
+                }
+            })
+            .catch(error => {
+                console.error('Network or fetch error:', error);
+            });
+        }
+        
+        // *** دالة تحميل لوحة الصدارة الجديدة (تتواصل مع Google Apps Script) ***
+        function loadLeaderboardFromCloud() {
+            const leadersList = document.getElementById('leadersList');
+            leadersList.innerHTML = `<div class="empty-state"><div class="empty-icon">🔄</div><div class="empty-title">يتم تحميل النتائج...</div><div class="empty-subtitle">الرجاء الانتظار قليلاً ريثما يتم جلب البيانات من السحابة.</div></div>`;
+
+            const data = { action: 'LOAD' };
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'text/plain' }, // <-- fixed to avoid preflight
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.status === 'Success' && result.leaderboard) {
+                    cachedLeaderboard = result.leaderboard;
+                    displayLeaderboardUI(cachedLeaderboard, currentFilter);
+                } else {
+                    console.error('Error loading leaderboard:', result.message);
+                    leadersList.innerHTML = `<div class="empty-state"><div class="empty-icon">⚠️</div><div class="empty-title">خطأ في التحميل</div><div class="empty-subtitle">حدث خطأ أثناء جلب البيانات. تأكد من إعداد Apps Script بشكل صحيح والسماح بالوصول لـ <b>أي شخص</b>.</div></div>`;
+                }
+            })
+            .catch(error => {
+                console.error('Network or fetch error:', error);
+                leadersList.innerHTML = `<div class="empty-state"><div class="empty-icon">🚫</div><div class="empty-title">فشل الاتصال</div><div class="empty-subtitle">تعذر الاتصال بخدمة حفظ النتائج (Apps Script). تأكد من نشر الخدمة بشكل صحيح والسماح بالوصول لـ <b>أي شخص</b>.</div></div>`;
+            });
+        }
+
+        // عرض لوحة الصدارة باستخدام البيانات المُخزنة مؤقتًا (UI)
+        function displayLeaderboardUI(leaderboardData, filterType = 'all') {
+            
+            let filteredData = leaderboardData;
+            if (filterType !== 'all') {
+                filteredData = leaderboardData.filter(player => player.userType === filterType);
+            }
+            
+            updateLeaderboardStats(filteredData);
+            
+            const leadersList = document.getElementById('leadersList');
+            
+            if (filteredData.length === 0) {
+                leadersList.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-icon">🎯</div>
+                        <div class="empty-title">لا توجد نتائج</div>
+                        <div class="empty-subtitle">
+                            ${filterType === 'all' ? 'لم يلعب أحد بعد!' : 'لا توجد نتائج لهذه الفئة'}<br>
+                            كن أول من يحقق نتيجة رائعة!
+                        </div>
+                    </div>
+                `;
+            } else {
+                leadersList.innerHTML = '';
+                filteredData.forEach((player, index) => {
+                    const item = document.createElement('div');
+                    item.className = 'leader-item';
+                    
+                    if (index < 3) item.classList.add('top-rank');
+                    if (index === 0) item.classList.add('champion');
+                    
+                    let badgeClass = 'regular';
+                    let rankIcon = index + 1;
+                    if (index === 0) {
+                        badgeClass = 'gold';
+                        rankIcon = '👑';
+                    } else if (index === 1) {
+                        badgeClass = 'silver';
+                        rankIcon = '🥈';
+                    } else if (index === 2) {
+                        badgeClass = '🥉';
+                        rankIcon = '🥉';
+                    }
+                    
+                    // تأكد أن player.time هو رقم صحيح قبل الحساب
+                    const timeInSeconds = parseInt(player.time) || 0;
+                    const minutes = Math.floor(timeInSeconds / 60);
+                    const seconds = timeInSeconds % 60;
+                    const timeDisplay = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+                    
+                    let userIcon = '👤';
+                    let userLabel = '';
+                    let userBadgeColor = 'rgba(255, 255, 255, 0.2)';
+                    
+                    if (player.userType) {
+                        switch(player.userType) {
+                            case 'parent':
+                                userIcon = '👨‍👩‍👧‍👦';
+                                userLabel = 'ولي أمر';
+                                userBadgeColor = 'rgba(76, 175, 80, 0.3)';
+                                break;
+                            case 'student':
+                                userIcon = '👩‍🎓';
+                                userLabel = 'طالبة';
+                                userBadgeColor = 'rgba(33, 150, 243, 0.3)';
+                                break;
+                            case 'teacher':
+                                userIcon = '👩‍🏫';
+                                userLabel = 'هيئة تعليمية';
+                                userBadgeColor = 'rgba(156, 39, 176, 0.3)';
+                                break;
+                        }
+                    }
+                    
+                    item.innerHTML = `
+                        <div class="rank-badge ${badgeClass}">${rankIcon}</div>
+                        
+                        <div class="player-details">
+                            <div class="player-name">
+                                ${userIcon} ${player.name}
+                                <span class="user-badge" style="background: ${userBadgeColor};">${userLabel}</span>
+                            </div>
+                            <div class="player-stats">
+                                <div class="stat-item">⏱️ ${timeDisplay}</div>
+                                <div class="stat-item">✅ ${player.correctAnswers}/${totalQuestions}</div>
+                                ${player.speedBonus > 0 ? `<div class="stat-item speed-bonus">⚡ +${player.speedBonus}</div>` : ''}
+                                <div class="stat-item">📅 ${player.date}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="score-display">
+                            <div class="final-score">${player.score}</div>
+                            <div class="score-details">
+                                ${player.correctAnswers} إجابة
+                                ${player.speedBonus > 0 ? `<br><span class="speed-bonus">+${player.speedBonus} سرعة</span>` : ''}
+                            </div>
+                        </div>
+                    `;
+                    
+                    leadersList.appendChild(item);
+                });
+            }
+        }
+
+        // دالة عرض لوحة الصدارة الرئيسية (تحدد ما إذا كان يجب التحميل أو العرض من الذاكرة المؤقتة)
+        function displayLeaderboard(filterType = 'all') {
+            currentFilter = filterType;
+            // دائماً أعد التحميل من السحابة في حال طلبها، لضمان تحديث النتائج
+            loadLeaderboardFromCloud();
+        }
+
+        // تحديث إحصائيات لوحة الصدارة (الوظيفة تبقى كما هي)
+        function updateLeaderboardStats(data) {
+            const totalPlayers = data.length;
+            const averageScore = totalPlayers > 0 ? Math.round(data.reduce((sum, p) => sum + p.score, 0) / totalPlayers) : 0;
+            // نتيجة مثالية هي 6 إجابات صحيحة (600 نقطة) بالإضافة إلى أي مكافأة سرعة.
+            const perfectScores = data.filter(p => p.correctAnswers === 6).length; 
+            const speedChampions = data.filter(p => p.speedBonus >= 75).length;
+            
+            document.getElementById('leaderboardStats').innerHTML = `
+                <div class="stat-card">
+                    <span class="stat-number">${totalPlayers}</span>
+                    <span class="stat-label">لاعب</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">${averageScore}</span>
+                    <span class="stat-label">متوسط النقاط</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">${perfectScores}</span>
+                    <span class="stat-label">نتيجة مثالية</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">${speedChampions}</span>
+                    <span class="stat-label">بطل سرعة</span>
+                </div>
+            `;
+        }
+
+        // تصفية لوحة الصدارة (تم تعديلها للعمل مع عرض واجهة المستخدم)
+        function filterLeaderboard(type) {
+            currentFilter = type;
+            
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // استخدم البيانات المخزنة مؤقتًا للعرض السريع
+            displayLeaderboardUI(cachedLeaderboard, type);
+        }
+
+        // إظهار لوحة الصدارة من الترحيب
+        function showWelcomeLeaderboard() {
+            displayLeaderboard('all'); // ابدأ بالتحميل وعرض الكل
+            document.getElementById('welcomeScreen').style.display = 'none';
+            document.getElementById('leaderboardScreen').style.display = 'block';
+            document.getElementById('backToWelcomeBtn').style.display = 'inline-block';
+            document.getElementById('backToGameBtn').style.display = 'none';
+        }
+
+        // إظهار لوحة الصدارة من اللعبة (تم تعديلها لاستدعاء التحميل مرة أخرى لتحديث النتائج)
+        function showLeaderboard() {
+             // إعادة تحميل النتائج للتأكد من ظهور النتيجة الجديدة
+            displayLeaderboard('all'); 
+            document.getElementById('celebrationOverlay').classList.remove('show');
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('visionPuzzleScreen').style.display = 'none';
+            document.getElementById('leaderboardScreen').style.display = 'block';
+            document.getElementById('backToWelcomeBtn').style.display = 'none';
+            document.getElementById('backToGameBtn').style.display = 'inline-block';
+        }
+
+        // إخفاء لوحة الصدارة (الوظيفة تبقى كما هي)
+        function hideLeaderboard() {
+            document.getElementById('leaderboardScreen').style.display = 'none';
+            document.getElementById('gameScreen').style.display = 'block';
+        }
+
+        // العودة للترحيب (الوظيفة تبقى كما هي)
+        function backToWelcome() {
+            document.getElementById('leaderboardScreen').style.display = 'none';
+            document.getElementById('welcomeScreen').style.display = 'flex';
+        }
+
+
+        // إعادة تشغيل اللعبة (الوظيفة تبقى كما هي)
+        function restartGame() {
+            currentQuestion = 1;
+            score = 0;
+            userType = '';
+            
+            if (timerInterval) {
+                clearInterval(timerInterval);
+            }
+            
+            document.getElementById('celebrationOverlay').classList.remove('show');
+            document.getElementById('gameScreen').style.display = 'none';
+            document.getElementById('leaderboardScreen').style.display = 'none';
+            document.getElementById('visionPuzzleScreen').style.display = 'none';
+            
+            for (let i = 1; i <= totalQuestions; i++) {
+                const questionContainer = document.getElementById(`question${i}`);
+                questionContainer.classList.remove('active');
+                
+                const buttons = questionContainer.querySelectorAll('.answer-option');
+                buttons.forEach(btn => {
+                    btn.disabled = false;
+                    btn.classList.remove('correct', 'wrong');
+                });
+                
+                document.getElementById(`explanation${i}`).classList.remove('show');
+                document.getElementById(`nextBtn${i}`).classList.remove('show');
+            }
+            
+            resetPuzzle();
+            
+            document.getElementById('welcomeScreen').style.display = 'flex';
+            document.getElementById('playerName').value = '';
+            document.getElementById('startButton').disabled = true;
+            document.getElementById('startButton').style.opacity = '0.5';
+            
+            document.querySelectorAll('.user-type-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            document.getElementById('question1').classList.add('active');
+        }
+
+        // تهيئة التطبيق (الوظيفة تبقى كما هي)
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            document.getElementById('playerName').addEventListener('input', checkStartButtonState);
+            
+            updateProgress();
+            updateScore();
+        });
+    </script>
+</body>
+</html>
